@@ -1,0 +1,31 @@
+@import "styles/variaveis";
+@import "styles/breakpoints";
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.title {
+    color: $text;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background-color: $paralel;
+
+    &__clean {
+        color: $primary;
+        font-size: 50px;
+        text-align: center;
+    }
+}
+
+.treinos {
+    display: flex;
+    gap: 20px;
+}
