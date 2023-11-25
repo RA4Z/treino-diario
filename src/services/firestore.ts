@@ -4,6 +4,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 
 export async function infoUsuario(nomeUser: string, setUser: any) {
     try {
+        console.log('buscando dados')
         let usuario: any[] = []
         const userRef = collection(db, 'usuarios');
         const q = query(userRef, where("nome", "==", nomeUser));

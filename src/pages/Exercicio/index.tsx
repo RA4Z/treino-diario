@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Exercicio.module.scss'
 import Treino from "components/Treino"
 import Card from "components/Card"
@@ -11,9 +11,18 @@ import { exercicios } from "./info"
 export default function Exercicio() {
     const { username } = useParams()
     const [selecionado, setSelecionado] = useState('A')
+    const [paginaTreino, setPaginaTreino] = useState(0)
     const [infoTreino, setInfoTreino] = useState(exercicios)
-    //if (username && infoTreino.nome === '') infoUsuario("Robert", setInfoTreino)
-    
+    if (username && infoTreino.nome === '') infoUsuario("Robert", setInfoTreino)
+
+    useEffect(() => {
+        for (let i = 0; i < infoTreino.treinos.length; i++) {
+            if (infoTreino.treinos[i].id === selecionado) {
+                setPaginaTreino(i)
+            }
+        }
+    }, [selecionado, infoTreino])
+
     const treinos = ['A', 'B', 'C']
     return (
         <div className={styles.container}>
@@ -28,7 +37,7 @@ export default function Exercicio() {
                 ))}
             </div>
             <div className={styles.exercicios}>
-                {infoTreino.treinos[0].exercicios.map(treino => (
+                {infoTreino.treinos[paginaTreino].exercicios.map(treino => (
                     <Card
                         descricao={treino.descricao}
                         titulo={treino.nome}
