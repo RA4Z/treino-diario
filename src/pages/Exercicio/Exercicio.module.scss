@@ -12,7 +12,7 @@
 
 .title {
     color: $text;
-    font-size: 50px;
+    font-size: calc(8px + 5vmin);
     text-align: center;
     width: 100%;
     padding: 15px;
@@ -20,7 +20,7 @@
 
     &__clean {
         color: $primary;
-        font-size: 50px;
+        font-size: calc(8px + 5vmin);
         text-align: center;
     }
 }

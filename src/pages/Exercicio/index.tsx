@@ -5,7 +5,6 @@ import Treino from "components/Treino"
 import Card from "components/Card"
 import Prancha from 'assets/Prancha.png'
 import { infoUsuario } from "services/firestore"
-import { InfoTreinoUser } from "utils/User"
 import { exercicios } from "./info"
 
 export default function Exercicio() {
