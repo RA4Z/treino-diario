@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import styles from './Exercicio.module.scss'
 import Treino from "components/Treino"
+import Card from "components/Card"
 
 export default function Exercicio() {
     const { username } = useParams()
-    const [selecionado, setSelecionado] = useState('')
+    const [selecionado, setSelecionado] = useState('A')
     const treinos = ['A', 'B', 'C']
     function selecionarTreino(treino: string) {
         setSelecionado(treino)
@@ -23,7 +24,11 @@ export default function Exercicio() {
                         selected={selecionado === treino ? true : false} />
                 ))}
             </div>
-
+            <div className={styles.exercicios}>
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </div>
     )
 }

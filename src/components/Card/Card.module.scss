@@ -1,0 +1,32 @@
+@import "styles/variaveis";
+@import "styles/breakpoints";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary;
+    border-radius: 10px;
+    min-height: 175px;
+    flex-wrap: wrap;
+    
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        background-color: $background;
+        border-radius: 25px;
+        width: 85%;
+        height: 85px;
+    }
+}
+
+.title {
+    color: $gold;
+    font-size: 30px;
+}
+
+.description {
+    color: $text;
+    font-size: 15px;
+}
