@@ -12,7 +12,8 @@ export default function Exercicio() {
     const [selecionado, setSelecionado] = useState('A')
     const [paginaTreino, setPaginaTreino] = useState(0)
     const [infoTreino, setInfoTreino] = useState(exercicios)
-    if (username && infoTreino.nome === '') infoUsuario("Robert", setInfoTreino)
+    console.log(username!.charAt(0).toUpperCase() + username!.slice(1))
+    if (username && infoTreino.nome === '') infoUsuario(username.charAt(0).toUpperCase() + username.slice(1), setInfoTreino)
 
     useEffect(() => {
         for (let i = 0; i < infoTreino.treinos.length; i++) {
