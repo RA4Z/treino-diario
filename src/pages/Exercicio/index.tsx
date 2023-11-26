@@ -38,6 +38,7 @@ export default function Exercicio() {
             <div className={styles.exercicios}>
                 {infoTreino.treinos[paginaTreino].exercicios.map(treino => (
                     <Card
+                        key={treino.nome}
                         descricao={treino.descricao}
                         titulo={treino.nome}
                         imagem={Prancha} />
