@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import styles from './Exercicio.module.scss'
 import Treino from "components/Treino"
 import Card from "components/Card"
-import Prancha from 'assets/Prancha.png'
+import Ginastica from 'assets/Ginastica.png'
 import { infoUsuario } from "services/firestore"
 import { exercicios } from "./info"
 
@@ -41,7 +41,8 @@ export default function Exercicio() {
                         key={treino.nome}
                         descricao={treino.descricao}
                         titulo={treino.nome}
-                        imagem={Prancha} />
+                        imagem={treino.imagem ? treino.imagem : Ginastica}
+                        tecnica={treino.tecnica} />
                 ))
 
                 }

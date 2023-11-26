@@ -7,7 +7,8 @@ export const exercicios = {
                 {
                     nome: '',
                     descricao: '',
-                    tecnica: ''
+                    tecnica: '',
+                    imagem: ''
                 }
             ]
         }
