@@ -37,3 +37,21 @@
     justify-content: center;
     gap: 20px;
 }
+.recomendacoes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: $paralel;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+
+    &__title {
+        color: $gold;
+        font-size: calc(10px + 3vmin);
+    }
+    &__text {
+        color: $text;
+        font-size: calc(9px + 2vmin);
+    }
+}

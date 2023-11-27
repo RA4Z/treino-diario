@@ -48,6 +48,11 @@ export default function Exercicio() {
 
                 }
             </div>
+
+            <div className={styles.recomendacoes}>
+                <h2 className={styles.recomendacoes__title}>Recomendações</h2>
+                <p className={styles.recomendacoes__text}>{infoTreino.recomendacoes}</p>
+            </div>
         </div>
     )
 }
