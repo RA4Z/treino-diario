@@ -29,6 +29,13 @@ export default function Exercicio() {
     return (
         <div className={styles.container}>
             <p className={styles.title}>{username?.toUpperCase()}</p>
+            <div className={styles.recomendacoes}>
+                <p className={styles.recomendacoes__text} style={{ background: '#3F672E' }}>Progressão de carga: A cada Série aumente a carga de FORMA UNIFORME SEM EXAGEROS.</p>
+                <p className={styles.recomendacoes__text} style={{ background: '#A66136' }}>Rest Pause: Faça a série de preferência próximo a falha, descanse 10-15 segundos e retorne até o máximo que conseguir</p>
+                <p className={styles.recomendacoes__text} style={{ background: '#949494' }}>Controle de Movimento: Faça o controle tanto na excêntrica quanto concêntrica, desça e suba devagar controlando o peso e o movimento</p>
+                <p className={styles.recomendacoes__text} style={{ background: '#7043CB' }}>Pico de Contração 2 Seg: Quando o músculo CONTRAIR, seguro por 2 segundos e então retorne à execução, assim sucessivamente</p>
+                <p className={styles.recomendacoes__text} style={{ background: '#144485' }}>Bi-Set: Os dois exercícios ao mesmo tempo sem descanso entre ambos, assim que fez um comece o outro imediatamente, e descanse quando terminar de fazer os dois.</p>
+            </div>
             <p className={styles.title__clean}>Treinos ativos</p>
             <div className={styles.treinos}>
                 {treinos.map(treino => (
@@ -57,13 +64,9 @@ export default function Exercicio() {
             </div>
 
             <div className={styles.recomendacoes}>
-                <p className={styles.recomendacoes__text} style={{ background: '#3F672E' }}>Progressão de carga: A cada Série aumente a carga de FORMA UNIFORME SEM EXAGEROS.</p>
-                <p className={styles.recomendacoes__text} style={{ background: '#A66136' }}>Rest Pause: Faça a série de preferência próximo a falha, descanse 10-15 segundos e retorne até o máximo que conseguir</p>
-                <p className={styles.recomendacoes__text} style={{ background: '#949494' }}>Controle de Movimento: Faça o controle tanto na excêntrica quanto concêntrica, desça e suba devagar controlando o peso e o movimento</p>
-                <p className={styles.recomendacoes__text} style={{ background: '#7043CB' }}>Pico de Contração 2 Seg: Quando o músculo CONTRAIR, seguro por 2 segundos e então retorne à execução, assim sucessivamente</p>
-                <p className={styles.recomendacoes__text} style={{ background: '#144485' }}>Bi-Set: Os dois exercícios ao mesmo tempo sem descanso entre ambos, assim que fez um comece o outro imediatamente, e descanse quando terminar de fazer os dois.</p>
-
+                <p className={styles.aviso}>{infoTreino.aviso}</p>
             </div>
+
         </div>
     )
 }
