@@ -4,18 +4,18 @@ import styles from './Exercicio.module.scss'
 import Treino from "components/Treino"
 import Card from "components/Card"
 import Ginastica from 'assets/Ginastica.png'
-import { infoUsuario } from "services/firestore"
+import { infoUser } from "services/firestore"
 import { exercicios } from "./info"
 
 export default function Exercicio() {
-    const { username } = useParams()
+    const { id } = useParams()
     const [selecionado, setSelecionado] = useState('A')
     const [paginaTreino, setPaginaTreino] = useState(0)
     const [infoTreino, setInfoTreino] = useState(exercicios)
 
-    if (username && infoTreino.nome === '') {
+    if (id && infoTreino.nome === '') {
         console.log('Buscando Dados')
-        infoUsuario(username.charAt(0).toUpperCase() + username.slice(1), setInfoTreino)
+        infoUser(id, setInfoTreino)
     }
     useEffect(() => {
         for (let i = 0; i < infoTreino.treinos.length; i++) {
@@ -28,7 +28,7 @@ export default function Exercicio() {
     const treinos = ['A', 'B', 'C']
     return (
         <div className={styles.container}>
-            <p className={styles.title}>{username?.toUpperCase()}</p>
+            <p className={styles.title}>{infoTreino.nome?.toUpperCase()}</p>
             <div className={styles.recomendacoes}>
                 <p className={styles.recomendacoes__text} style={{ background: '#3F672E' }}>Progressão de carga: A cada Série aumente a carga de FORMA UNIFORME SEM EXAGEROS.</p>
                 <p className={styles.recomendacoes__text} style={{ background: '#A66136' }}>Rest Pause: Faça a série de preferência próximo a falha, descanse 10-15 segundos e retorne até o máximo que conseguir</p>

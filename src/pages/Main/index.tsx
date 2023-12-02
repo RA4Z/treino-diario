@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Main() {
     const navigate = useNavigate()
-    const [user, setUser] = useState([{ nome: '', imagem: '', personal: '' }])
+    const [user, setUser] = useState([{ id: '', nome: '', imagem: '', personal: '' }])
 
     useEffect(() => {
         async function atualizarUser() {
@@ -22,7 +22,7 @@ export default function Main() {
                 {user.map(atual => (
                     <Card imagem={atual.imagem}
                         titulo={atual.nome}
-                        onClick={() => navigate(`/exercicio/${atual.nome}`)}
+                        onClick={() => navigate(`/exercicio/${atual.id}`)}
                         descricao={atual.personal} />
                 ))}
             </div>

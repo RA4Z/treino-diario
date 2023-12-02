@@ -1,20 +1,16 @@
 import { db } from '../config/firebase';
-import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
+import { collection, doc, getDoc, onSnapshot, query } from 'firebase/firestore';
 
 
-export async function infoUsuario(nomeUser: string, setUser: any) {
+export async function infoUser(userID: any, setUser: any) {
     try {
-        let usuario: any[] = []
-        const userRef = collection(db, 'usuarios');
-        const q = query(userRef, where("nome", "==", nomeUser));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            let info = { id: doc.id, ...doc.data() }
-            usuario.push(info)
-        });
-        setUser(usuario[0])
-    } catch (error) {
+        const ref = (await getDoc(doc(db, 'usuarios', userID))).data()
+        setUser(ref)
+        return 'ok'
+    }
+    catch (error) {
         console.log(error)
+        return 'error'
     }
 }
 

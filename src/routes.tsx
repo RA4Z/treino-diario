@@ -8,7 +8,7 @@ export default function AppRouter() {
         <Router>
             <Routes>
                 <Route path='/' element={<Main />} />
-                <Route path='/exercicio/:username' element={<Exercicio />} />
+                <Route path='/exercicio/:id' element={<Exercicio />} />
             </Routes>
         </Router>
     )
