@@ -1,5 +1,5 @@
 import { db } from '../config/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
 
 
 export async function infoUsuario(nomeUser: string, setUser: any) {
@@ -17,3 +17,16 @@ export async function infoUsuario(nomeUser: string, setUser: any) {
         console.log(error)
     }
 }
+
+export async function visualizarUser(setUsers: any, setBackup?: any) {
+    const ref = query(collection(db, "usuarios"))
+    onSnapshot(ref, (querySnapshot) => {
+        const user: any[] = []
+        querySnapshot.forEach((doc) => {
+            user.push({ id: doc.id, ...doc.data() })
+        })
+        setUsers(user)
+        if (setBackup) setBackup(user)
+    })
+}
+

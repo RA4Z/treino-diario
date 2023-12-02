@@ -3,8 +3,9 @@ import styles from './Card.module.scss'
 interface Props {
     titulo: string,
     imagem: string,
-    descricao: string,
-    tecnica?: string
+    descricao?: string,
+    tecnica?: string,
+    onClick?: (_: any) => any
 }
 
 export default function Card(props: Props) {
@@ -29,12 +30,14 @@ export default function Card(props: Props) {
         }
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.container}
+            onClick={props.onClick}
+            style={props.onClick && { cursor: 'pointer' }}>
             <div className={styles.title}>{props.titulo}</div>
             <div className={styles.container__img}>
                 <img src={props.imagem} alt={props.titulo} />
             </div>
-            <p className={styles.description}>{props.descricao}</p>
+            {props.descricao && <p className={styles.description}>{props.descricao}</p>}
             {props.tecnica && <p className={styles.tecnicaColor} style={{ background: corTecnica }}>{props.tecnica}</p>}
         </div>
     )
